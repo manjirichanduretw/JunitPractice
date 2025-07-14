@@ -81,7 +81,8 @@ public class CalculatorTest {
 
     @DisplayName("Test Integer Subtraction [minuend, subtrahend, expectedResult] ")
     @ParameterizedTest
-    @MethodSource("IntegerSubtractionInputParameters")
+//    @MethodSource("IntegerSubtractionInputParameters")
+    @MethodSource() // instead of seperate name, can give same name as test menthod and junit detects it
     void integerSubstraction(int minuend, int subtrahend, int expectedResult){
 
         System.out.println(minuend + " - " + subtrahend + " = " + expectedResult);
@@ -90,7 +91,7 @@ public class CalculatorTest {
         assertEquals(expectedResult, actualresult, ()-> minuend + " - " + subtrahend + " did not produce " + expectedResult);
     }
 
-    private static Stream<Arguments> IntegerSubtractionInputParameters(){
+    private static Stream<Arguments> integerSubstraction(){
         return Stream.of(
                Arguments.of(33, 1, 32),
                Arguments.of(54, 1, 53),
