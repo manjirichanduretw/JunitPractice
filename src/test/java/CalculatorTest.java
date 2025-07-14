@@ -1,10 +1,7 @@
 import org.example.Calculator;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.Stream;
 
@@ -105,5 +102,13 @@ public class CalculatorTest {
                Arguments.of(54, 1, 53),
                Arguments.of(98, 6, 92)
         );
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Manjiri", "meow", "mini"})
+//    should contains single parameter list string/int so on, test runs for each value
+    void valueSourceDemonstration(String name){
+            System.out.println("Hi " + name);
+            assertNotNull(name);
     }
 }
