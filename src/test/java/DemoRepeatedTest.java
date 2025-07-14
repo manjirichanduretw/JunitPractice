@@ -14,8 +14,9 @@ public class DemoRepeatedTest {
     }
 
     @DisplayName("Integer/0 return ArithmeticException")
-    @RepeatedTest(3)
-    void testIntegerDivision_WhenDivisorIsZero_ShouldReturnArithmeticExpection(
+    @RepeatedTest(value = 3, name = "{displayName} . Repetition {currentRepetition} of " +
+            "{totalRepetitions}")
+     void testIntegerDivision_WhenDivisorIsZero_ShouldReturnArithmeticExpection(
             RepetitionInfo repetitionInfo, TestInfo testInfo){
         System.out.println("Executing IntegerDivisionByZero method");
         System.out.println("Running " + testInfo.getTestMethod().get().getName());
