@@ -34,7 +34,7 @@ public class CalculatorTest {
     @Test
     void testIntegerDivision_whenEightDividedByFour_ShouldReturn2(){
         System.out.println("Executing IntegerDivision method");
-        Calculator calculator = new Calculator();
+//        Calculator calculator = new Calculator();
         int result = calculator.integerDivision(8,4);
         assertEquals(2,result, "integerDivision() does not produce expected value");
     }
