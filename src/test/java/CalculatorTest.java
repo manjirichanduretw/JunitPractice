@@ -1,5 +1,10 @@
 import org.example.Calculator;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -72,5 +77,24 @@ public class CalculatorTest {
         //use lambda function to only execute when it gets failed
         assertEquals(expectedResult, actualResult, ()-> integer1 + " - " + integer2 + " is not equals " + expectedResult);
 
+    }
+
+    @DisplayName("Test Integer Subtraction [minuend, subtrahend, expectedResult] ")
+    @ParameterizedTest
+    @MethodSource("IntegerSubtractionInputParameters")
+    void integerSubstraction(int minuend, int subtrahend, int expectedResult){
+
+        System.out.println(minuend + " - " + subtrahend + " = " + expectedResult);
+
+        int actualresult = calculator.integerSubstractions(minuend, subtrahend);
+        assertEquals(expectedResult, actualresult, ()-> minuend + " - " + subtrahend + " did not produce " + expectedResult);
+    }
+
+    private static Stream<Arguments> IntegerSubtractionInputParameters(){
+        return Stream.of(
+               Arguments.of(33, 1, 32),
+               Arguments.of(54, 1, 53),
+               Arguments.of(98, 6, 92)
+        );
     }
 }
